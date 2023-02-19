@@ -45,7 +45,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        //
+        return $post->user()->is($user);
     }
 
     /**
