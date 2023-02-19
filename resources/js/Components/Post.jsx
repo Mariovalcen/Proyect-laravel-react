@@ -1,5 +1,8 @@
 import React from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime"
 
+dayjs.extend(relativeTime)
 const Post = ({ post }) => {
     return (
         <div className="p-5 flex space-x-2">
@@ -21,7 +24,7 @@ const Post = ({ post }) => {
                 <div className="flex justify-between items-center">
                     <span className="text-gray">{post.user.name}</span>
                     <small className="ml-2 text-sm text-gray">
-                        {new Date(post.created_at).toLocaleDateString()}
+                        {dayjs(post.created_at).fromNow()}
                     </small>
                 </div>
                 <p className="mt4 text lg text-gray">{post.title}</p>
