@@ -6,22 +6,22 @@ import { useForm, Head } from "@inertiajs/react";
 
 const Index = ({ auth }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
-        title: "",
-        body: "",
+        title:'',
+        body:''
     });
     const submit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         console.log(data)
-        post(route("post.store"), { onSucces: () => reset() });
+        post(route('posts.store'), { onSucces: () => reset() });
     };
     return (
         <AuthenticatedLayout auth={auth}>
-            <Head title="Posts" />
+            <Head title='Posts' />
             <div className="max-w-2x1 mx-auto p-4 sm:p-6 lg:p-8">
                 <form onSubmit={submit}>
                     <input
                         value={data.title}
-                        onChange={(e) => setData("title", e.target.value)}
+                        onChange={(e) => setData('title', e.target.value)}
                         type="text"
                         placeholder="Title"
                         autoFocus

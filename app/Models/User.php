@@ -12,11 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public function  posts()
+    {
+        // Un usuario puede tener muchos Post
+        return $this->hasMany(Post::class);
+    }
     protected $fillable = [
         'name',
         'email',
